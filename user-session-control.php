@@ -197,7 +197,7 @@ function usc_get_all_sessions_raw() {
 	global $wpdb;
 
 	$results  = array();
-	$sessions = $wpdb->get_results( "SELECT meta_value FROM $wpdb->usermeta WHERE meta_key = 'session_tokens'" );
+	$sessions = $wpdb->get_results( "SELECT meta_value FROM $wpdb->usermeta WHERE meta_key = 'session_tokens' LIMIT 0, 9999" );
 	$sessions = wp_list_pluck( $sessions, 'meta_value' );
 	$sessions = array_map( 'unserialize', $sessions );
 
@@ -215,6 +215,7 @@ function usc_get_all_sessions_raw() {
  */
 function usc_get_users_with_sessions() {
 	$args = array(
+		'number'     => 9999,
 		'meta_query' => array(
 			array(
 				'key'     => 'session_tokens',
