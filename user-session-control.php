@@ -98,92 +98,91 @@ function usc_user_submenu_callback() {
 
 		<p><?php _e( 'Total Unique Users:' ) ?> <strong><?php echo number_format( absint( $users->total_users ) ) ?></strong></p>
 
-		<div class="tablenav top">
-			<table class="wp-list-table widefat fixed users">
-				<thead>
-					<tr>
-						<?php foreach ( $columns as $slug => $name ) : ?>
-							<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
-								<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
-									<span><?php echo esc_html( $name ) ?></span>
-									<span class="sorting-indicator"></span>
-								</a>
-							</th>
-						<?php endforeach; ?>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<?php foreach ( $columns as $slug => $name ) : ?>
-							<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
-								<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
-									<span><?php echo esc_html( $name ) ?></span>
-									<span class="sorting-indicator"></span>
-								</a>
-							</th>
-						<?php endforeach; ?>
-					</tr>
-				</tfoot>
-				<tbody>
-					<?php $i = 0 ?>
-					<?php foreach ( $results as $result ) : $i++ ?>
-						<?php
-						$roles        = get_option( 'wp_user_roles' );
-						$role_label   = ! empty( $roles[ $result['role'] ]['name'] ) ? $roles[ $result['role'] ]['name'] : $result['role'];
-						$date_format  = get_option( 'date_format', 'F j, Y' ) . ' @ ' . get_option( 'time_format', 'g:i A' );
-						$user_id      = absint( $result['user_id'] );
-						$edit_link    = add_query_arg(
-							array(
-								'wp_http_referer' => urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ),
-							),
-							self_admin_url( sprintf( 'user-edit.php?user_id=%d', $user_id ) )
-						);
-						$destroy_link = add_query_arg(
-							array(
-								'action'     => 'destroy_session',
-								'user_id'    => $user_id,
-								'token_hash' => $result['token_hash'],
-								'_wpnonce'   => wp_create_nonce( sprintf( 'destroy_session_nonce-%d', $user_id ) ),
-							)
-						);
-						?>
-						<tr <?php echo ( 0 !== $i % 2 ) ? 'class="alternate"' : '' ?>>
-							<td class="username column-username">
-								<?php echo get_avatar( $user_id, 32 ) ?>
-								<strong>
-									<?php echo esc_html( $result['username'] ) ?>
-								</strong>
-								<br>
-								<div class="row-actions">
-									<?php if ( wp_get_session_token() === $result['token_hash'] ) : ?>
-										<span class="edit"><a href="<?php echo esc_url( $edit_link ) ?>"><?php _e( 'Edit', 'user-session-control' ) ?></a></span>
-									<?php else : ?>
-										<span class="edit"><a href="<?php echo esc_url( $edit_link ) ?>"><?php _e( 'Edit', 'user-session-control' ) ?></a> | </span>
-										<span class="trash"><a href="<?php echo esc_url( $destroy_link ) ?>" class="submitdelete"><?php _e( 'Destroy Session', 'user-session-control' ) ?></a></span>
-									<?php endif; ?>
-								</div>
-							</td>
-							<td><?php echo esc_html( $result['name'] ) ?></td>
-							<td>
-								<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="E-mail: <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
-							</td>
-							<td><?php echo esc_html( $role_label ) ?></td>
-							<td>
-								<strong><?php printf( __( '%s ago' ), human_time_diff( $result['created'] ) ) ?></strong>
-								<br>
-								<small><?php echo esc_html( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['created'] ), $date_format ) ) ?></small>
-							</td>
-							<td>
-								<strong><?php printf( __( 'in %s' ), human_time_diff( $result['expiration'] ) ) ?></strong>
-								<br>
-								<small><?php echo esc_html( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ), $date_format ) ) ?></small>
-							</td>
-							<td><?php echo esc_html( $result['ip'] ) ?></td>
-						</tr>
+		<table class="wp-list-table widefat fixed users">
+			<thead>
+				<tr>
+					<?php foreach ( $columns as $slug => $name ) : ?>
+						<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
+							<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
+								<span><?php echo esc_html( $name ) ?></span>
+								<span class="sorting-indicator"></span>
+							</a>
+						</th>
 					<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<?php foreach ( $columns as $slug => $name ) : ?>
+						<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
+							<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
+								<span><?php echo esc_html( $name ) ?></span>
+								<span class="sorting-indicator"></span>
+							</a>
+						</th>
+					<?php endforeach; ?>
+				</tr>
+			</tfoot>
+			<tbody>
+				<?php $i = 0 ?>
+				<?php foreach ( $results as $result ) : $i++ ?>
+					<?php
+					$roles        = get_option( 'wp_user_roles' );
+					$role_label   = ! empty( $roles[ $result['role'] ]['name'] ) ? $roles[ $result['role'] ]['name'] : $result['role'];
+					$date_format  = get_option( 'date_format', 'F j, Y' ) . ' @ ' . get_option( 'time_format', 'g:i A' );
+					$user_id      = absint( $result['user_id'] );
+					$edit_link    = add_query_arg(
+						array(
+							'wp_http_referer' => urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ),
+						),
+						self_admin_url( sprintf( 'user-edit.php?user_id=%d', $user_id ) )
+					);
+					$destroy_link = add_query_arg(
+						array(
+							'action'     => 'destroy_session',
+							'user_id'    => $user_id,
+							'token_hash' => $result['token_hash'],
+							'_wpnonce'   => wp_create_nonce( sprintf( 'destroy_session_nonce-%d', $user_id ) ),
+						)
+					);
+					?>
+					<tr <?php echo ( 0 !== $i % 2 ) ? 'class="alternate"' : '' ?>>
+						<td class="username column-username">
+							<?php echo get_avatar( $user_id, 32 ) ?>
+							<strong>
+								<?php echo esc_html( $result['username'] ) ?>
+							</strong>
+							<br>
+							<div class="row-actions">
+								<?php if ( wp_get_session_token() === $result['token_hash'] ) : ?>
+									<span class="edit"><a href="<?php echo esc_url( $edit_link ) ?>"><?php _e( 'Edit', 'user-session-control' ) ?></a></span>
+								<?php else : ?>
+									<span class="edit"><a href="<?php echo esc_url( $edit_link ) ?>"><?php _e( 'Edit', 'user-session-control' ) ?></a> | </span>
+									<span class="trash"><a href="<?php echo esc_url( $destroy_link ) ?>" class="submitdelete"><?php _e( 'Destroy Session', 'user-session-control' ) ?></a></span>
+								<?php endif; ?>
+							</div>
+						</td>
+						<td><?php echo esc_html( $result['name'] ) ?></td>
+						<td>
+							<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="E-mail: <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
+						</td>
+						<td><?php echo esc_html( $role_label ) ?></td>
+						<td>
+							<strong><?php printf( __( '%s ago' ), human_time_diff( $result['created'] ) ) ?></strong>
+							<br>
+							<small><?php echo esc_html( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['created'] ), $date_format ) ) ?></small>
+						</td>
+						<td>
+							<strong><?php printf( __( 'in %s' ), human_time_diff( $result['expiration'] ) ) ?></strong>
+							<br>
+							<small><?php echo esc_html( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ), $date_format ) ) ?></small>
+						</td>
+						<td><?php echo esc_html( $result['ip'] ) ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+
 	</div>
 	<?php
 }
