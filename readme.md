@@ -14,13 +14,15 @@ View and manage all active user sessions in a custom admin screen.
 
 ## Description ##
 
-The WordPress 4.1 "Dinah" release introduced the awesome power of user session management. However, you are only able to destroy your own sessions in from your own profile screen.
+WordPress 4.1 "Dinah" introduced the awesome power of user session management.
 
-This plugin allows Administrators to view and manage all sessions by all users.
+However, you are limited to only being able to destroy your own sessions, and you cannot destroy them individually.
+
+This plugin allows Administrators to view and manage all sessions by all users on an individual basis.
 
 * Displays a custom "God-view" screen of all active user sessions
-* You can sort sessions by user, role, creation date, expiry date or IP address
-* Easily destroy sessions you think are a security risk
+* Sort sessions by user, role, creation date, expiry date or IP address
+* Quickly and easily destroy sessions you think may be a security risk
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
