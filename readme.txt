@@ -17,7 +17,7 @@ However, you are limited to only being able to destroy your own sessions, and yo
 
 This plugin allows Administrators to view and manage all sessions by all users on an individual basis.
 
-* Displays a custom "God-view" screen of all active user sessions
+* Displays a custom "God view" screen of all active user sessions
 * Sort sessions by user, role, creation date, expiry date or IP address
 * Quickly and easily destroy sessions you think may be a security risk
 
