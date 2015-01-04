@@ -25,6 +25,7 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Displays a custom "God view" screen of all active user sessions
 * Sort sessions by user, role, creation date, expiry date or IP address
 * Quickly and easily destroy sessions you think may be a security risk
+* Uses the date and time formats saved under General Settings
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
