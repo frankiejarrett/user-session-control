@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: User Session Control 0.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/user-session-control\n"
 "POT-Creation-Date: 2015-01-06 23:16-0600\n"
-"PO-Revision-Date: 2015-01-06 23:56-0600\n"
+"PO-Revision-Date: 2015-01-07 00:02-0600\n"
 "Last-Translator: Frankie Jarrett <fjarrett@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -29,7 +29,7 @@ msgstr "﻿Haciendo trampa, ¿Eh?"
 
 #: ../user-session-control.php:103
 msgid "Username"
-msgstr "﻿Usuario"
+msgstr "Nombre de usuario"
 
 #: ../user-session-control.php:104
 msgid "Name"
@@ -41,7 +41,7 @@ msgstr "﻿Correo electrónico"
 
 #: ../user-session-control.php:106
 msgid "Role"
-msgstr "﻿Rol"
+msgstr "Perfil"
 
 #: ../user-session-control.php:107
 msgid "Created"
