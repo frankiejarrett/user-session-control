@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: User Session Control 0.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/user-session-control\n"
 "POT-Creation-Date: 2015-01-06 23:16-0600\n"
-"PO-Revision-Date: 2015-01-06 23:17-0600\n"
+"PO-Revision-Date: 2015-01-07 00:08-0600\n"
 "Last-Translator: Frankie Jarrett <fjarrett@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -30,7 +30,7 @@ msgstr "En train de tricher ?"
 
 #: ../user-session-control.php:103
 msgid "Username"
-msgstr "﻿Nom d'utilisateur"
+msgstr "Identifiant"
 
 #: ../user-session-control.php:104
 msgid "Name"
@@ -38,11 +38,11 @@ msgstr "﻿Nom"
 
 #: ../user-session-control.php:105
 msgid "E-mail"
-msgstr "Adresse courriel"
+msgstr "E-mail"
 
 #: ../user-session-control.php:106
 msgid "Role"
-msgstr "﻿Son rôle"
+msgstr "Rôle"
 
 #: ../user-session-control.php:107
 msgid "Created"
@@ -84,7 +84,7 @@ msgstr "﻿en %s"
 
 #: ../user-session-control.php:188
 msgid "E-mail:"
-msgstr "Adresse courriel :"
+msgstr "E-mail :"
 
 #~ msgid "View and manage all active user sessions in a custom admin screen."
 #~ msgstr "﻿Afficher et gérer toutes les sessions utilisateur actif dans un écran admin personnalisé."
