@@ -53,6 +53,8 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Improved translatable strings throughout
 * Added language files for French, German and Spanish
 
+Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
+
 ### 0.1.0 - January 1, 2015 ###
 * Initial release
 
