@@ -26,6 +26,13 @@ This plugin allows Administrators to view and manage all sessions by all users o
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
+**Languages Supported**
+
+* English
+* French
+* German
+* Spanish
+
 == Screenshots ==
 
 1. The familiar list table view allows you to view and manage all active user sessions easily.
