@@ -39,6 +39,13 @@ This plugin allows Administrators to view and manage all sessions by all users o
 
 ## Screenshots ##
 
+### The familiar list table view allows you to view and manage all active user sessions easily.
+
+![The familiar list table view allows you to view and manage all active user sessions easily.](assets/screenshot-1.png)
+
+### All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.
+
+![All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.](assets/screenshot-2.png)
 
 ## Changelog ##
 
