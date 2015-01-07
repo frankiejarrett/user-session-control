@@ -10,6 +10,27 @@
  */
 
 /**
+ * Define plugin constants
+ */
+define( 'USER_SESSION_CONTROL_VERSION', '0.1.0' );
+define( 'USER_SESSION_CONTROL_PLUGIN', plugin_basename( __FILE__ ) );
+define( 'USER_SESSION_CONTROL_DIR', plugin_dir_path( __FILE__ ) );
+define( 'USER_SESSION_CONTROL_URL', plugin_dir_url( __FILE__ ) );
+define( 'USER_SESSION_CONTROL_LANG_PATH', dirname( USER_SESSION_CONTROL_PLUGIN ) . '/languages' );
+
+/**
+ * Load languages
+ *
+ * @action plugins_loaded
+ *
+ * @return void
+ */
+function usc_i18n() {
+	load_plugin_textdomain( 'user-session-control', false, USER_SESSION_CONTROL_LANG_PATH );
+}
+add_action( 'plugins_loaded', 'usc_i18n' );
+
+/**
  * Register custom submenu
  *
  * @action admin_menu
@@ -17,7 +38,7 @@
  * @return array
  */
 function usc_register_user_submenu() {
-	add_submenu_page( 'users.php', 'User Session Control', 'Sessions', 'manage_options', 'user-session-control', 'usc_user_submenu_callback' );
+	add_submenu_page( 'users.php', __( 'User Session Control', 'user-session-control' ), __( 'Sessions', 'user-session-control' ), 'manage_options', 'user-session-control', 'usc_user_submenu_callback' );
 }
 add_action( 'admin_menu', 'usc_register_user_submenu' );
 
@@ -94,9 +115,9 @@ function usc_user_submenu_callback() {
 
 		<h2><?php _e( 'User Session Control', 'user-session-control' ) ?></h2>
 
-		<p><?php _e( 'Total Sessions:' ) ?> <strong><?php echo number_format( count( $results ) ) ?></strong></p>
+		<p><?php _e( 'Total Sessions:', 'user-session-control' ) ?> <strong><?php echo number_format( count( $results ) ) ?></strong></p>
 
-		<p><?php _e( 'Total Unique Users:' ) ?> <strong><?php echo number_format( absint( $users->total_users ) ) ?></strong></p>
+		<p><?php _e( 'Total Unique Users:', 'user-session-control' ) ?> <strong><?php echo number_format( absint( $users->total_users ) ) ?></strong></p>
 
 		<table class="wp-list-table widefat fixed users">
 			<thead>
@@ -127,11 +148,11 @@ function usc_user_submenu_callback() {
 				<?php $i = 0 ?>
 				<?php foreach ( $results as $result ) : $i++ ?>
 					<?php
-					$roles        = get_option( 'wp_user_roles' );
-					$role_label   = ! empty( $roles[ $result['role'] ]['name'] ) ? $roles[ $result['role'] ]['name'] : $result['role'];
-					$date_format  = get_option( 'date_format', 'F j, Y' ) . ' @ ' . get_option( 'time_format', 'g:i A' );
-					$user_id      = absint( $result['user_id'] );
-					$edit_link    = add_query_arg(
+					$roles       = get_option( 'wp_user_roles' );
+					$role_label  = ! empty( $roles[ $result['role'] ]['name'] ) ? $roles[ $result['role'] ]['name'] : $result['role'];
+					$date_format = get_option( 'date_format', 'F j, Y' ) . ' @ ' . get_option( 'time_format', 'g:i A' );
+					$user_id     = absint( $result['user_id'] );
+					$edit_link   = add_query_arg(
 						array(
 							'wp_http_referer' => urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ),
 						),
@@ -164,7 +185,7 @@ function usc_user_submenu_callback() {
 						</td>
 						<td><?php echo esc_html( $result['name'] ) ?></td>
 						<td>
-							<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="E-mail: <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
+							<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="<?php esc_attr_e( 'E-mail:', 'user-session-control' ) ?> <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
 						</td>
 						<td><?php echo esc_html( $role_label ) ?></td>
 						<td>
