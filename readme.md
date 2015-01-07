@@ -49,6 +49,11 @@ This plugin allows Administrators to view and manage all sessions by all users o
 
 ## Changelog ##
 
+### 0.2.1 - January 7, 2015 ###
+* Localized date format display
+
+Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
+
 ### 0.2.0 - January 7, 2015 ###
 * Added plugin constants
 * Improved translatable strings throughout
