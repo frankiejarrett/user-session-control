@@ -24,14 +24,14 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Quickly and easily destroy sessions you think may be a security risk
 * Uses the date and time formats saved under General Settings
 
-**Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
-
-**Languages Supported**
+**Languages supported:**
 
 * English
 * French
 * German
 * Spanish
+
+**Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
 == Screenshots ==
 
