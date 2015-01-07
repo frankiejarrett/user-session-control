@@ -30,9 +30,9 @@ This plugin allows Administrators to view and manage all sessions by all users o
 **Languages supported:**
 
 * English
-* French
-* German
-* Spanish
+* Deutsch
+* Español
+* Français
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
