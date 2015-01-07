@@ -2,7 +2,7 @@
 /**
  * Plugin Name: User Session Control
  * Description: View and manage all active user sessions in a custom admin screen.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com
  * License: GPLv2+
@@ -12,7 +12,7 @@
 /**
  * Define plugin constants
  */
-define( 'USER_SESSION_CONTROL_VERSION', '0.2.0' );
+define( 'USER_SESSION_CONTROL_VERSION', '0.2.1' );
 define( 'USER_SESSION_CONTROL_PLUGIN', plugin_basename( __FILE__ ) );
 define( 'USER_SESSION_CONTROL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'USER_SESSION_CONTROL_URL', plugin_dir_url( __FILE__ ) );
