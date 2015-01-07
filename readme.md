@@ -48,6 +48,11 @@ This plugin allows Administrators to view and manage all sessions by all users o
 
 ## Changelog ##
 
+### 0.2.0 - January 7, 2015 ###
+* Added plugin constants
+* Improved translatable strings throughout
+* Added language files for French, German and Spanish
+
 ### 0.1.0 - January 1, 2015 ###
 * Initial release
 
