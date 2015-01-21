@@ -40,7 +40,12 @@ add_action( 'plugins_loaded', 'usc_i18n' );
 function usc_register_user_submenu() {
 	add_submenu_page( 'users.php', __( 'User Session Control', 'user-session-control' ), __( 'Sessions', 'user-session-control' ), 'manage_options', 'user-session-control', 'usc_user_submenu_callback' );
 }
-add_action( 'admin_menu', 'usc_register_user_submenu' );
+
+if ( is_network_admin() ) {
+	add_action( 'network_admin_menu', 'usc_register_user_submenu' );
+} else {
+	add_action( 'admin_menu', 'usc_register_user_submenu' );
+}
 
 /**
  * Callback for the custom submenu screen content
@@ -109,6 +114,10 @@ function usc_user_submenu_callback() {
 		'ip'       => __( 'IP Address', 'user-session-control' ),
 	);
 
+	if ( is_network_admin() ) {
+		unset( $columns['role'] );
+	}
+
 	$users = usc_get_users_with_sessions();
 	?>
 	<div class="wrap">
@@ -173,7 +182,13 @@ function usc_user_submenu_callback() {
 						<td class="username column-username">
 							<?php echo get_avatar( $user_id, 32 ) ?>
 							<strong>
-								<?php echo esc_html( $result['username'] ) ?>
+								<a href="<?php echo esc_url( $edit_link ) ?>">
+									<?php echo esc_html( $result['username'] ) ?>
+								</a>
+
+								<?php if ( is_multisite() && is_super_admin( $user_id ) ) : ?>
+									- <?php _e( 'Super Admin' ) ?>
+								<?php endif; ?>
 							</strong>
 							<br>
 							<div class="row-actions">
@@ -189,7 +204,11 @@ function usc_user_submenu_callback() {
 						<td>
 							<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="<?php esc_attr_e( 'E-mail:', 'user-session-control' ) ?> <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
 						</td>
-						<td><?php echo esc_html( $role_label ) ?></td>
+
+						<?php if ( ! is_network_admin() ) : ?>
+							<td><?php echo esc_html( $role_label ) ?></td>
+						<?php endif; ?>
+
 						<td>
 							<strong><?php printf( __( '%s ago' ), human_time_diff( $result['created'] ) ) ?></strong>
 							<br>
@@ -238,6 +257,7 @@ function usc_get_all_sessions_raw() {
 function usc_get_users_with_sessions() {
 	$args = array(
 		'number'     => 9999,
+		'blog_id'    => is_network_admin() ? 0 : get_current_blog_id(),
 		'meta_query' => array(
 			array(
 				'key'     => 'session_tokens',
