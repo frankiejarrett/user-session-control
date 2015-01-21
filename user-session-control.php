@@ -119,6 +119,8 @@ function usc_user_submenu_callback() {
 	}
 
 	$users = usc_get_users_with_sessions();
+
+	global $wp_roles;
 	?>
 	<div class="wrap">
 
@@ -157,8 +159,7 @@ function usc_user_submenu_callback() {
 				<?php $i = 0 ?>
 				<?php foreach ( $results as $result ) : $i++ ?>
 					<?php
-					$roles       = get_option( 'wp_user_roles' );
-					$role_label  = ! empty( $roles[ $result['role'] ]['name'] ) ? translate_user_role( $roles[ $result['role'] ]['name'] ) : $result['role'];
+					$role_label  = ! empty( $wp_roles->roles[ $result['role'] ]['name'] ) ? translate_user_role( $wp_roles->roles[ $result['role'] ]['name'] ) : $result['role'];
 					$date_format = get_option( 'date_format', 'F j, Y' ) . ' @ ' . get_option( 'time_format', 'g:i A' );
 					$user_id     = absint( $result['user_id'] );
 					$edit_link   = add_query_arg(
@@ -185,7 +186,6 @@ function usc_user_submenu_callback() {
 								<a href="<?php echo esc_url( $edit_link ) ?>">
 									<?php echo esc_html( $result['username'] ) ?>
 								</a>
-
 								<?php if ( is_multisite() && is_super_admin( $user_id ) ) : ?>
 									- <?php _e( 'Super Admin' ) ?>
 								<?php endif; ?>
