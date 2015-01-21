@@ -22,7 +22,8 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Displays a custom "God view" screen of all active user sessions
 * Sort sessions by user, role, creation date, expiry date or IP address
 * Quickly and easily destroy sessions you think may be a security risk
-* Uses the date and time formats saved under General Settings
+* Respects the timezone, date format and time format saved under General Settings
+* View all user sessions from all blogs on your network via the Network Admin
 
 **Languages supported:**
 
@@ -39,6 +40,11 @@ This plugin allows Administrators to view and manage all sessions by all users o
 2. All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.
 
 == Changelog ==
+
+= 0.2.2 - January 21, 2015 =
+
+* Added Network Admin view for multisite networks
+* Fix expiration date column sorting bug
 
 = 0.2.1 - January 7, 2015 =
 
