@@ -46,6 +46,8 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Added Network Admin view for multisite networks
 * Fix expiration date column sorting bug
 
+Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
+
 = 0.2.1 - January 7, 2015 =
 
 * Localized date format display
