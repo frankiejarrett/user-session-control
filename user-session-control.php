@@ -240,7 +240,7 @@ function usc_get_all_sessions_raw() {
 	$results  = array();
 	$sessions = $wpdb->get_results( "SELECT meta_value FROM $wpdb->usermeta WHERE meta_key = 'session_tokens' LIMIT 0, 9999" );
 	$sessions = wp_list_pluck( $sessions, 'meta_value' );
-	$sessions = array_map( 'unserialize', $sessions );
+	$sessions = array_map( 'maybe_unserialize', $sessions );
 
 	foreach ( $sessions as $session ) {
 		$results = array_merge( $results, $session );
