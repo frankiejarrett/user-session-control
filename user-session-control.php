@@ -176,8 +176,8 @@ function usc_user_submenu_callback() {
 							'_wpnonce'   => wp_create_nonce( sprintf( 'destroy_session_nonce-%d', $user_id ) ),
 						)
 					);
-					$created    = strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['created'] ) ) );
-					$expiration = strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ) ) );
+					$created    = is_network_admin() ? $result['created'] : strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['created'] ) ) );
+					$expiration = is_network_admin() ? $result['expiration'] : strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ) ) );
 					?>
 					<tr <?php echo ( 0 !== $i % 2 ) ? 'class="alternate"' : '' ?>>
 						<td class="username column-username">
