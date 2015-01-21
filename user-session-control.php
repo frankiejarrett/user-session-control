@@ -105,13 +105,13 @@ function usc_user_submenu_callback() {
 	}
 
 	$columns = array(
-		'username' => __( 'Username', 'user-session-control' ),
-		'name'     => __( 'Name', 'user-session-control' ),
-		'email'    => __( 'E-mail', 'user-session-control' ),
-		'role'     => __( 'Role', 'user-session-control' ),
-		'created'  => __( 'Created', 'user-session-control' ),
-		'expires'  => __( 'Expires', 'user-session-control' ),
-		'ip'       => __( 'IP Address', 'user-session-control' ),
+		'username'   => __( 'Username', 'user-session-control' ),
+		'name'       => __( 'Name', 'user-session-control' ),
+		'email'      => __( 'E-mail', 'user-session-control' ),
+		'role'       => __( 'Role', 'user-session-control' ),
+		'created'    => __( 'Created', 'user-session-control' ),
+		'expiration' => __( 'Expires', 'user-session-control' ),
+		'ip'         => __( 'IP Address', 'user-session-control' ),
 	);
 
 	if ( is_network_admin() ) {
