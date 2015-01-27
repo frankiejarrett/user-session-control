@@ -3,7 +3,7 @@ Contributors:      fjarrett
 Tags:              login, users, security, sessions
 Requires at least: 4.1
 Tested up to:      4.1
-Stable tag:        trunk
+Stable tag:        0.3.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,7 @@ This plugin allows Administrators to view and manage all sessions by all users o
 * Deutsch
 * Español
 * Français
+* Português
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/user-session-control). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/user-session-control/issues) there before going to the plugin forum.**
 
@@ -40,6 +41,14 @@ This plugin allows Administrators to view and manage all sessions by all users o
 2. All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.
 
 == Changelog ==
+
+= 0.3.0 - January 27, 2015 =
+
+* New: Added pagination controls to the Sessions screen
+* New: Added language files for Portuguese
+* Tweak: Refreshed all other language files
+
+Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
 
 = 0.2.2 - January 21, 2015 =
 
