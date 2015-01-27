@@ -141,8 +141,8 @@ function usc_user_submenu_callback() {
 		admin_url( USER_SESSION_CONTROL_ADMIN_PARENT_SLUG )
 	);
 	$last_link  = add_query_arg( array( 'paged' => $pages ), $first_link );
-	$prev_link  = ( $paged > 2 ) ? add_query_arg( array( 'paged' => absint( $paged - 1 ) ), $first_link ) : $first_link;
-	$next_link  = ( $pages > $paged ) ? add_query_arg( array( 'paged' => absint( $paged + 1 ) ), $first_link ) : $last_link;
+	$prev_link  = ( $paged > 2 ) ? add_query_arg( array( 'paged' => absint( $paged - 1 ), 'sessions_per_page' => $spp, ), $first_link ) : $first_link;
+	$next_link  = ( $pages > $paged ) ? add_query_arg( array( 'paged' => absint( $paged + 1 ), 'sessions_per_page' => $spp, ), $first_link ) : $last_link;
 	?>
 	<div class="tablenav-pages">
 		<span class="displaying-num"><?php printf( __( '%s items', 'user-session-control' ), number_format( $total_sessions ) ) ?></span>
