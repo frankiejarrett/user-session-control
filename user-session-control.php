@@ -145,7 +145,7 @@ function usc_user_submenu_callback() {
 	$next_link  = ( $pages > $paged ) ? add_query_arg( array( 'paged' => absint( $paged + 1 ) ), $first_link ) : $last_link;
 	?>
 	<div class="tablenav-pages">
-		<span class="displaying-num"><?php printf( __( '%s items' ), number_format( $total_sessions ) ) ?></span>
+		<span class="displaying-num"><?php printf( __( '%s items', 'user-session-control' ), number_format( $total_sessions ) ) ?></span>
 
 		<?php if ( $pages > 1 ) : ?>
 
