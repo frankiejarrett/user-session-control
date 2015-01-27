@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the User Session Control package.
 msgid ""
 msgstr ""
-"Project-Id-Version: User Session Control 0.1.0\n"
+"Project-Id-Version: User Session Control/0.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/user-session-control\n"
-"POT-Creation-Date: 2015-01-06 23:16-0600\n"
-"PO-Revision-Date: 2015-01-07 00:02-0600\n"
+"POT-Creation-Date: 2015-01-27 14:53-0600\n"
+"PO-Revision-Date: 2015-01-27 15:19-0600\n"
 "Last-Translator: Frankie Jarrett <fjarrett@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -13,77 +13,107 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-#: ../user-session-control.php:41 ../user-session-control.php:116
+#: ../user-session-control.php:43 ../user-session-control.php:170
 msgid "User Session Control"
 msgstr "Control de Sesión de Usuario"
 
-#: ../user-session-control.php:41
+#: ../user-session-control.php:43
 msgid "Sessions"
 msgstr "Sesiones"
 
-#: ../user-session-control.php:65
+#: ../user-session-control.php:72
 msgid "Cheatin&#8217; uh?"
 msgstr "﻿Haciendo trampa, ¿Eh?"
 
-#: ../user-session-control.php:103
+#: ../user-session-control.php:118
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../user-session-control.php:104
+#: ../user-session-control.php:119
 msgid "Name"
 msgstr "﻿Nombre"
 
-#: ../user-session-control.php:105
+#: ../user-session-control.php:120
 msgid "E-mail"
 msgstr "﻿Correo electrónico"
 
-#: ../user-session-control.php:106
+#: ../user-session-control.php:121
 msgid "Role"
 msgstr "Perfil"
 
-#: ../user-session-control.php:107
+#: ../user-session-control.php:122
 msgid "Created"
 msgstr "Creado"
 
-#: ../user-session-control.php:108
+#: ../user-session-control.php:123
 msgid "Expires"
 msgstr "﻿Vence el"
 
-#: ../user-session-control.php:109
+#: ../user-session-control.php:124
 msgid "IP Address"
 msgstr "﻿Dirección IP"
 
-#: ../user-session-control.php:118
+#: ../user-session-control.php:148
+#, php-format
+msgid "%s items"
+msgstr "﻿artículos de %s"
+
+#: ../user-session-control.php:153
+msgid "Go to the first page"
+msgstr "Ir a la primera página"
+
+#: ../user-session-control.php:154
+msgid "Go to the previous page"
+msgstr "Ir a la página anterior"
+
+#: ../user-session-control.php:156
+msgid "of"
+msgstr "﻿de"
+
+#: ../user-session-control.php:158
+msgid "Go to the next page"
+msgstr "Ir a la página siguiente"
+
+#: ../user-session-control.php:159
+msgid "Go to the last page"
+msgstr "Ir a la última página"
+
+#: ../user-session-control.php:172
 msgid "Total Sessions:"
 msgstr "Número de sesiones:"
 
-#: ../user-session-control.php:120
+#: ../user-session-control.php:174
 msgid "Total Unique Users:"
 msgstr "Número de usuarios únicos:"
 
-#: ../user-session-control.php:179 ../user-session-control.php:181
+#: ../user-session-control.php:243
+msgid "Super Admin"
+msgstr "﻿Superadministrador"
+
+#: ../user-session-control.php:249 ../user-session-control.php:251
 msgid "Edit"
 msgstr "﻿Editar"
 
-#: ../user-session-control.php:182
+#: ../user-session-control.php:252
 msgid "Destroy Session"
 msgstr "﻿Destruir sesión"
 
-#: ../user-session-control.php:192
+#: ../user-session-control.php:258
+msgid "E-mail:"
+msgstr "﻿Correo electrónico:"
+
+#: ../user-session-control.php:266
 #, php-format
 msgid "%s ago"
 msgstr "﻿Hace %s"
 
-#: ../user-session-control.php:197
+#: ../user-session-control.php:271
 #, php-format
 msgid "in %s"
 msgstr "﻿en %s"
-
-#: ../user-session-control.php:188
-msgid "E-mail:"
-msgstr "﻿Correo electrónico:"
 
 #~ msgid "View and manage all active user sessions in a custom admin screen."
 #~ msgstr "﻿Ver y administrar todas las sesiones de usuario activo en una pantalla personalizada admin."
