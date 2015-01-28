@@ -175,7 +175,22 @@ function usc_user_submenu_callback() {
 
 		<form method="get">
 
+			<?php wp_nonce_field( '_wpnonce', '_wpnonce' ) ?>
+
 			<div class="tablenav top">
+
+				<div class="alignleft actions bulkactions">
+
+					<label for="bulk-action-selector-top" class="screen-reader-text"><?php _e( 'Select bulk action' ) ?></label>
+
+					<select name="action" id="bulk-action-selector-top">
+						<option value="-1" selected="selected"><?php _e( 'Bulk Actions' ) ?></option>
+						<option value="delete"><?php _e( 'Delete' ) ?></option>
+					</select>
+
+					<input type="submit" name="" id="doaction" class="button action" value="<?php esc_attr_e( 'Apply' ) ?>">
+
+				</div>
 
 				<?php echo $pagination // xss ok ?>
 
@@ -186,8 +201,12 @@ function usc_user_submenu_callback() {
 			<table class="wp-list-table widefat fixed users">
 				<thead>
 					<tr>
+						<th scope="col" id="cb" class="manage-column column-cb check-column">
+							<label class="screen-reader-text" for="cb-select-all-1"><?php _e( 'Select All' ) ?></label>
+							<input id="cb-select-all-1" type="checkbox">
+						</th>
 						<?php foreach ( $columns as $slug => $name ) : ?>
-							<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
+							<th scope="col" id="<?php echo esc_attr( $slug ) ?>" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
 								<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
 									<span><?php echo esc_html( $name ) ?></span>
 									<span class="sorting-indicator"></span>
@@ -198,6 +217,10 @@ function usc_user_submenu_callback() {
 				</thead>
 				<tfoot>
 					<tr>
+						<th scope="col" id="cb" class="manage-column column-cb check-column">
+							<label class="screen-reader-text" for="cb-select-all-2"><?php _e( 'Select All' ) ?></label>
+							<input id="cb-select-all-2" type="checkbox">
+						</th>
 						<?php foreach ( $columns as $slug => $name ) : ?>
 							<th scope="col" class="manage-column column-<?php echo esc_attr( $slug ) ?> <?php echo ( $slug === $orderby ) ? 'sorted' : 'sortable' ?> <?php echo ( $slug === $orderby && $order ) ? esc_attr( strtolower( $order ) ) : 'desc' ?>">
 								<a href="<?php echo esc_url( add_query_arg( array( 'orderby' => $slug, 'order' => ( $slug === $orderby ) ? esc_attr( $order_flip ) : 'asc' ) ) ) ?>">
@@ -233,6 +256,10 @@ function usc_user_submenu_callback() {
 						$expiration = is_network_admin() ? $result['expiration'] : strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ) ) );
 						?>
 						<tr <?php echo ( 0 !== $i % 2 ) ? 'class="alternate"' : '' ?>>
+							<th scope="row" class="check-column">
+								<label class="screen-reader-text" for="cb-select-<?php echo absint( $user_id ) ?>"><?php printf( __( 'Select %s' ), esc_html( $result['username'] ) ) ?></label>
+								<input type="checkbox" name="users[]" id="user_<?php echo absint( $user_id ) ?>" class="author" value="<?php echo absint( $user_id ) ?>">
+							</th>
 							<td class="username column-username">
 								<?php echo get_avatar( $user_id, 32 ) ?>
 								<strong>
@@ -253,32 +280,55 @@ function usc_user_submenu_callback() {
 									<?php endif; ?>
 								</div>
 							</td>
-							<td><?php echo esc_html( $result['name'] ) ?></td>
-							<td>
+							<td class="name column-name">
+								<?php echo esc_html( $result['name'] ) ?>
+							</td>
+							<td class="email column-email">
 								<a href="mailto:<?php echo esc_attr( $result['email'] ) ?>" title="<?php esc_attr_e( 'E-mail:', 'user-session-control' ) ?> <?php echo esc_attr( $result['email'] ) ?>"><?php echo esc_html( $result['email'] ) ?></a>
 							</td>
 
 							<?php if ( ! is_network_admin() ) : ?>
-								<td><?php echo esc_html( $role_label ) ?></td>
+								<td class="role column-role">
+									<?php echo esc_html( $role_label ) ?>
+								</td>
 							<?php endif; ?>
 
-							<td>
+							<td class="created column-created">
 								<strong><?php printf( __( '%s ago' ), human_time_diff( $result['created'] ) ) ?></strong>
-								<br>
-								<small><?php echo esc_html( date_i18n( $date_format, $created ) ) ?></small>
+								<span class="datetime">
+									<br>
+									<small><?php echo esc_html( date_i18n( $date_format, $created ) ) ?></small>
+								</span>
 							</td>
-							<td>
+							<td class="expiration column-expiration">
 								<strong><?php printf( __( 'in %s', 'user-session-control' ), human_time_diff( $result['expiration'] ) ) ?></strong>
-								<br>
-								<small><?php echo esc_html( date_i18n( $date_format, $expiration ) ) ?></small>
+								<span class="datetime">
+									<br>
+									<small><?php echo esc_html( date_i18n( $date_format, $expiration ) ) ?></small>
+								</span>
 							</td>
-							<td><?php echo esc_html( $result['ip'] ) ?></td>
+							<td class="ip column-ip">
+								<?php echo esc_html( $result['ip'] ) ?>
+							</td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
 			</table>
 
 			<div class="tablenav bottom">
+
+				<div class="alignleft actions bulkactions">
+
+					<label for="bulk-action-selector-bottom" class="screen-reader-text"><?php _e( 'Select bulk action' ) ?></label>
+
+					<select name="action2" id="bulk-action-selector-bottom">
+						<option value="-1" selected="selected"><?php _e( 'Bulk Actions' ) ?></option>
+						<option value="delete"><?php _e( 'Delete' ) ?></option>
+					</select>
+
+					<input type="submit" name="" id="doaction2" class="button action" value="<?php esc_attr_e( 'Apply' ) ?>">
+
+				</div>
 
 				<?php echo $pagination // xss ok ?>
 
@@ -291,6 +341,73 @@ function usc_user_submenu_callback() {
 	</div>
 	<?php
 }
+
+/**
+ * Custom styles for sessions list table
+ *
+ * @action admin_head
+ *
+ * @return void
+ */
+function usc_admin_css() {
+	$screen = get_current_screen();
+
+	if ( sprintf( 'users_page_%s', USER_SESSION_CONTROL_ADMIN_PAGE_SLUG ) !== $screen->id ) {
+		return;
+	}
+	?>
+	<style type="text/css">
+	.users .column-username img {
+		margin-bottom: 7px;
+	}
+	.users tbody .column-username {
+		position: relative;
+		overflow: visible;
+	}
+	.users .column-username .row-actions {
+		position: absolute;
+		left: 52px;
+		width: 100%;
+	}
+	@media screen and (max-width: 1600px) {
+		.users .column-email {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 1400px) {
+		.users .column-ip {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 960px) {
+		.users .column-created .datetime,
+		.users .column-expiration .datetime {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 782px) {
+		.users .column-username {
+			width: 35%;
+		}
+		.users tbody .column-username {
+			position: inherit;
+		}
+		.users .column-username .row-actions {
+			position: inherit;
+		}
+		.users .column-role {
+			width: auto;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		.users .column-expiration {
+			display: none;
+		}
+	}
+	</style>
+	<?php
+}
+add_action( 'admin_head', 'usc_admin_css' );
 
 /**
  * Get all raw session meta from all users
