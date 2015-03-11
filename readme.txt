@@ -11,7 +11,7 @@ View and manage all active user sessions in a custom admin screen.
 
 == Description ==
 
-**Did you find this plugin helpful? Please consider [writing a review](https://wordpress.org/support/view/plugin-reviews/user-session-control).**
+**Did you find this plugin helpful? Please consider [leaving a 5-star review](https://wordpress.org/support/view/plugin-reviews/user-session-control).**
 
 WordPress 4.1 "Dinah" introduced the awesome power of user session management.
 
