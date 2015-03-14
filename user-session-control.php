@@ -350,20 +350,21 @@ function usc_get_all_sessions() {
 		foreach ( $sessions as $session ) {
 			foreach ( $user_sessions as $token_hash => $user_session ) {
 				// Loose comparison needed
-				if ( $user_session == $session ) {
-					$results[] = array(
-						'user_id'    => $user->ID,
-						'username'   => $user->user_login,
-						'name'       => $user->display_name,
-						'email'      => $user->user_email,
-						'role'       => ! empty( $user->roles[0] ) ? $user->roles[0] : '',
-						'created'    => $user_session['login'],
-						'expiration' => $user_session['expiration'],
-						'ip'         => $user_session['ip'],
-						'user_agent' => $user_session['ua'],
-						'token_hash' => $token_hash,
-					);
+				if ( $user_session != $session ) {
+					continue;
 				}
+				$results[] = array(
+					'user_id'    => $user->ID,
+					'username'   => $user->user_login,
+					'name'       => $user->display_name,
+					'email'      => $user->user_email,
+					'role'       => ! empty( $user->roles[0] ) ? $user->roles[0] : '',
+					'created'    => $user_session['login'],
+					'expiration' => $user_session['expiration'],
+					'ip'         => $user_session['ip'],
+					'user_agent' => $user_session['ua'],
+					'token_hash' => $token_hash,
+				);
 			}
 		}
 	}
