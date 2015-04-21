@@ -7,7 +7,7 @@ View and manage all active user sessions in a custom admin screen.
 **Contributors:** [fjarrett](https://profiles.wordpress.org/fjarrett)  
 **Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
 **Requires at least:** 4.1  
-**Tested up to:** 4.1  
+**Tested up to:** 4.2  
 **Stable tag:** 0.3.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
