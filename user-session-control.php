@@ -5,7 +5,6 @@
  * Version: 0.3.0
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com
- * License: GPLv2+
  * Text Domain: user-session-control
  *
  * Copyright: © 2015 Frankie Jarrett.
