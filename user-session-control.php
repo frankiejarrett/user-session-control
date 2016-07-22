@@ -234,6 +234,7 @@ function usc_user_submenu_callback() {
 						);
 						$created    = is_network_admin() ? $result['created'] : strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['created'] ) ) );
 						$expiration = is_network_admin() ? $result['expiration'] : strtotime( get_date_from_gmt( date( 'Y-m-d H:i:s', $result['expiration'] ) ) );
+						$ip_column = apply_filters( 'usc_user_ip_html', esc_html( $result['ip'] ), $result );
 						?>
 						<tr <?php echo ( 0 !== $i % 2 ) ? 'class="alternate"' : '' ?>>
 							<td class="username column-username">
@@ -275,7 +276,7 @@ function usc_user_submenu_callback() {
 								<br>
 								<small><?php echo esc_html( date_i18n( $date_format, $expiration ) ) ?></small>
 							</td>
-							<td><?php echo esc_html( $result['ip'] ) ?></td>
+							<td><?php echo $ip_column ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
