@@ -11,7 +11,7 @@ View and manage all active user sessions in a custom admin screen.
 **Stable tag:** 0.3.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/fjarrett/user-session-control.png?branch=master)](https://travis-ci.org/fjarrett/user-session-control) 
+[![Build Status](https://travis-ci.org/fjarrett/user-session-control.svg?branch=master)](https://travis-ci.org/fjarrett/user-session-control) 
 
 ## Description ##
 
