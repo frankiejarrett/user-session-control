@@ -8,7 +8,8 @@
  * Text Domain: user-session-control
  * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Copyright: © 2016 Frankie Jarrett
+ *
+ * Copyright © 2016 Frankie Jarrett. All Rights Reserved.
  */
 
 /**
