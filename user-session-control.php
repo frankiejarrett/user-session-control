@@ -6,10 +6,9 @@
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com
  * Text Domain: user-session-control
- *
- * Copyright: © 2015 Frankie Jarrett.
- * License: GNU General Public License v2.0
+ * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Copyright: © 2016 Frankie Jarrett
  */
 
 /**
