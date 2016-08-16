@@ -4,7 +4,7 @@
  * Description: View and manage all active user sessions in a custom admin screen.
  * Version: 0.3.0
  * Author: Frankie Jarrett
- * Author URI: http://frankiejarrett.com
+ * Author URI: https://frankiejarrett.com
  * Text Domain: user-session-control
  * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
