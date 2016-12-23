@@ -2,8 +2,8 @@
 Contributors:      fjarrett
 Tags:              login, users, security, sessions
 Requires at least: 4.1
-Tested up to:      4.6
-Stable tag:        0.3.0
+Tested up to:      4.7
+Stable tag:        0.3.1
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ This plugin allows Administrators to view and manage all sessions by all users o
 2. All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.
 
 == Changelog ==
+
+= 0.3.1 - December 23, 2016 =
+
+* Tweak: Indicate support for WordPress 4.7.
 
 = 0.3.0 - January 27, 2015 =
 

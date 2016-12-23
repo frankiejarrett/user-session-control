@@ -7,8 +7,8 @@ View and manage all active user sessions in a custom admin screen.
 **Contributors:** [fjarrett](https://profiles.wordpress.org/fjarrett)  
 **Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
 **Requires at least:** 4.1  
-**Tested up to:** 4.6  
-**Stable tag:** 0.3.0  
+**Tested up to:** 4.7  
+**Stable tag:** 0.3.1  
 **License:** [GPL-2.0](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 [![Build Status](https://travis-ci.org/fjarrett/user-session-control.svg?branch=master)](https://travis-ci.org/fjarrett/user-session-control) 
@@ -50,6 +50,9 @@ This plugin allows Administrators to view and manage all sessions by all users o
 ![All columns are sortable in ascending and descending order so you can quickly find the sessions you are looking for.](assets/screenshot-2.png)
 
 ## Changelog ##
+
+### 0.3.1 - December 23, 2016 ###
+* Tweak: Indicate support for WordPress 4.7.
 
 ### 0.3.0 - January 27, 2015 ###
 * New: Added pagination controls to the Sessions screen
